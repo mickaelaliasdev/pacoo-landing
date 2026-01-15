@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pacoo</title>
+  
+  <!-- Meta pour le partage social -->
+  <meta property="og:title" content="Pacoo">
+  <meta property="og:description" content="Rejoins-moi sur Pacoo !">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pacoo.co">
+  
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #1a1a2e;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .container {
+      text-align: center;
+      color: white;
+      max-width: 400px;
+    }
+    h1 { font-size: 48px; margin-bottom: 16px; }
+    p { font-size: 18px; opacity: 0.8; margin-bottom: 40px; }
+    .stores {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .store-btn {
+      transition: transform 0.2s;
+    }
+    .store-btn:hover { transform: scale(1.05); }
+    .store-btn img {
+      height: 50px;
+    }
+    .android-btn img {
+      height: 74px;
+      margin: -12px 0;
+    }
+    .redirecting {
+      font-size: 14px;
+      opacity: 0.6;
+      margin-top: 32px;
+    }
+  </style>
+  
+  <script>
+    // ⚠️ REMPLACE CES URLS PAR LES TIENNES
+    const APP_STORE_URL = 'https://apps.apple.com/app/pacoo/id123456789';
+    const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.pacoo.app';
+    
+    // Détection de l'OS
+    function getOS() {
+      const ua = navigator.userAgent || navigator.vendor || window.opera;
+      if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) return 'ios';
+      if (/android/i.test(ua)) return 'android';
+      return 'desktop';
+    }
+    
+    // Redirection automatique sur mobile
+    const os = getOS();
+    
+    if (os === 'ios') {
+      window.location.href = APP_STORE_URL;
+    } else if (os === 'android') {
+      window.location.href = PLAY_STORE_URL;
+    }
+    // Sur desktop → on affiche la page
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>Pacoo</h1>
+    <p>Télécharge l'app pour continuer</p>
+    
+    <div class="stores">
+      <a href="https://apps.apple.com/app/pacoo/id123456789" class="store-btn">
+        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/fr-fr" alt="App Store">
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=com.pacoo.app" class="store-btn android-btn">
+        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/fr_badge_web_generic.png" alt="Play Store">
+      </a>
+    </div>
+    
+    <p class="redirecting">Sur mobile, tu seras redirigé automatiquement</p>
+  </div>
+</body>
+</html>
