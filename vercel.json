@@ -1,6 +1,7 @@
 {
   "rewrites": [
     { "source": "/cgu", "destination": "/cgu.html" },
+    { "source": "/privacy", "destination": "/privacy.html" },
     { "source": "/(.*)", "destination": "/" }
   ]
 }
